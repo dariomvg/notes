@@ -1,5 +1,6 @@
 export const deleteImageCloud = async (images) => {
-  const response = await fetch(`${import.meta.env.VITE_URL_BACKEND}/delete-image`, {
+  const url = import.meta.env.VITE_URL_BACKEND; 
+  const response = await fetch(`${url}/delete-image`, {
     method: "POST",
     headers: {"Content-type": "application/json; charset=UTF-8"},
     body: JSON.stringify(images),

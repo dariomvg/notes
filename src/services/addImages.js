@@ -1,6 +1,8 @@
 
 export const addImagesCloud = async (formdata) => {
-  const response = await fetch(`${import.meta.env.VITE_URL_BACKEND}/upload-image`, {
+  const url = import.meta.env.VITE_URL_BACKEND; 
+
+  const response = await fetch(`${url}/upload-image`, {
     method: "POST",
     body: formdata,
   });
