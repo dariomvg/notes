@@ -11,6 +11,7 @@ const ButtonCreate = React.lazy(() => import('./components/ButtonCreate'));
 export default function App() {
   const { notes, toggle } = useContextNotes();
   const { theme } = useContextTheme();
+  console.log(`${import.meta.env.VITE_URL_BACKEND}`)
   return (
     <main className="wrapper">
       <Header />
