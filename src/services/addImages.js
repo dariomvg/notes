@@ -1,5 +1,4 @@
 export const addImagesCloud = async (formdata) => {
-  // 
   const response = await fetch(process.env.URL_ADD, {
     method: "POST",
     body: formdata,
