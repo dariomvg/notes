@@ -1,1 +1,1 @@
-export const URL_BACKEND = "http://localhost:4000"
+export const URL_BACKEND = import.meta.env.URL_BACKEND || "http://localhost:4000"

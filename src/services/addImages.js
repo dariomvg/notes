@@ -1,5 +1,7 @@
+import { URL_BACKEND } from "../utils/url";
+
 export const addImagesCloud = async (formdata) => {
-  const response = await fetch(`${import.meta.env.URL_BACKEND}/upload-image`, {
+  const response = await fetch(`${URL_BACKEND}/upload-image`, {
     method: "POST",
     body: formdata,
   });
