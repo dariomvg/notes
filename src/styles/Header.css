@@ -1,0 +1,39 @@
+.header {
+    background-color: transparent;
+    color: #fff;
+    display: flex;
+    gap: 20px;
+    position: fixed;
+    z-index: 999;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    height: 60px;
+} 
+
+.icon-menu {
+    cursor: pointer;
+    display: none;
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+@media (max-width: 768px) {
+    .icon-menu {
+        display: flex;
+    }
+    .header {
+        width: 100%;
+    }
+    .navbar {
+        width: 100%;
+        justify-content: space-between;
+    }
+}
+
+
+
