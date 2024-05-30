@@ -1,9 +1,6 @@
 
-import {
-  getLocalStorageNotes,
-  setLocalStorageNotes,
-} from "../utils/saveLocalStorage";
 import { createContext, useContext, useEffect, useState } from "react";
+import { getLocalStorageNotes, setLocalStorageNotes } from "../utils/saveLocalStorage";
 
 export const ContextNotes = createContext();
 
@@ -16,7 +13,6 @@ export const useContextNotes = () => {
 };
 
 export default function ProviderNotes({ children }) {
-  const [favorites, setFavorites] = useState([]);
   const [editNote, setEditNote] = useState({});
   const [toggle, setToggle] = useState(false);
 
