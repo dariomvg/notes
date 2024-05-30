@@ -5,5 +5,4 @@ export const objNote = {
     date: "",
     hours: "",
     back: {},
-    images: []
   };

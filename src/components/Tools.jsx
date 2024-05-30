@@ -1,11 +1,10 @@
 
 import iconDelete from "../assets/icons/delete.svg";
 import iconUpdate from "../assets/icons/update.svg";
-import iconImage from "../assets/icons/image.svg";
 import iconColors from "../assets/icons/colors.svg";
 import "../styles/Tools.css";
 
-const Tools = ({ deleteNote, editNote, showColors, showFormImage }) => {
+const Tools = ({ deleteNote, editNote, showColors }) => {
   return (
     <div className="container-tools">
       <img
@@ -37,16 +36,6 @@ const Tools = ({ deleteNote, editNote, showColors, showFormImage }) => {
         className="icon-tool"
         loading="lazy"
         onClick={showColors}
-      />
-      <img
-        src={iconImage}
-        width={32}
-        height={32}
-        alt="icon img"
-        title="imgn de fondo"
-        className="icon-tool"
-        loading="lazy"
-        onClick={showFormImage}
       />
     </div>
   );

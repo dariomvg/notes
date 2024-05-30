@@ -2,7 +2,7 @@
 import {
   getLocalStorageNotes,
   setLocalStorageNotes,
-} from "../services/saveLocalStorage";
+} from "../utils/saveLocalStorage";
 import { createContext, useContext, useEffect, useState } from "react";
 
 export const ContextNotes = createContext();
@@ -31,14 +31,6 @@ export default function ProviderNotes({ children }) {
     setToggle(!toggle);
   };
 
-  const addImagesLocal = (img, id) => {
-    setNotes(
-      notes.map((note) =>
-        note.id === id ? { ...note, images: [...note.images, img] } : note
-      )
-    );
-  };
-
   const addNotes = (note) => {
     if (note.id) {
       setNotes(notes.map((item) => (item.id === note.id ? note : item)));
@@ -50,10 +42,6 @@ export default function ProviderNotes({ children }) {
 
   const removeNote = (id) => {
     setNotes(notes.filter((note) => note.id !== id));
-  };
-
-  const addFavorite = (favorite) => {
-    setFavorites([...favorites, favorite]);
   };
 
   const addBackground = (background, id) => {
@@ -74,12 +62,10 @@ export default function ProviderNotes({ children }) {
         notes,
         addNotes,
         removeNote,
-        addFavorite,
         editNote,
         setEditNote,
         showModal,
         toggle,
-        addImagesLocal,
         addBackground,
       }}>
       {children}

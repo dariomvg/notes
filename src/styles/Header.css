@@ -9,6 +9,7 @@
     display: flex;
     align-items: center;
     height: 60px;
+    backdrop-filter: blur(2px);
 } 
 
 .icon-menu {
