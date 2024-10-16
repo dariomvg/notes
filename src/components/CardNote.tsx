@@ -1,34 +1,30 @@
 import { useState } from "react";
 import { useContextNotes } from "../contexts/ContextNotes";
-import ContainerBackground from "./ContainerBackground";
-import Tools from "./Tools";
+import ContainerBackground from "./ContainerBackground.js";
+import Tools from "./Tools.js";
 import "../styles/CardNote.css";
+import { ColorType, NoteType} from "../types/types";
 
-const CardNote = ({ note }) => {
+const CardNote = ({ note }: NoteType) => {
   const [viewColors, setViewColors] = useState(false);
   const { id, title, text, date, hours, back } = note;
-  const { setEditNote, showModal, addBackground, removeNote } =
+  const { addBackground, removeNote, updateNote } =
     useContextNotes();
 
-  const editNote = () => {
-    setEditNote(note);
-    showModal();
-  };
+    const editNote = () => {
+      updateNote(note)
+    }
 
   const showColors = () => setViewColors(!viewColors);
 
-  const handleBackground = (back) => addBackground(back, id);
+  const handleBackground = (back: ColorType) => addBackground(back, id);
 
   const deleteNote = () => removeNote(id);
 
   return (
     <div
       className="card-note"
-      style={
-        back.color
-          ? { backgroundColor: back.color }
-          : { backgroundImage: `url(/${back.img})` }
-      }>
+      style={back.color ? { backgroundColor: back.color } : undefined}>
       <div className="header-card">
         <div className="container-date">
           <p>última edición:</p>

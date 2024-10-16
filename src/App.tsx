@@ -1,16 +1,15 @@
 import "./App.css";
 import FormCard from "./components/FormCard";
 import { useContextNotes } from "./contexts/ContextNotes";
-import Loading from "./components/Loading";
-import { useContextTheme } from "./contexts/ContextTheme";
+import Loading from "./components/Loading.js";
 import React, { Suspense } from "react";
-import Header from "./components/Header";
-const SectionCards = React.lazy(() => import('./components/SectionCards'));
-const ButtonCreate = React.lazy(() => import('./components/ButtonCreate'));
+import Header from "./components/Header.js";
+const SectionCards = React.lazy(() => import('./components/SectionCards.js'));
+const ButtonCreate = React.lazy(() => import('./components/ButtonCreate.js'));
 
 export default function App() {
   const { notes, toggle } = useContextNotes();
-  const { theme } = useContextTheme();
+
   return (
     <main className="wrapper">
       <Header />
@@ -19,7 +18,7 @@ export default function App() {
           <FormCard />
         </div>
       )}
-      <section className={`container-main ${theme ? "theme-light" : null}`}>
+      <section className="container-main">
         <section className="wrapper-main">
           <Suspense fallback={<Loading />}>
             {notes.length > 0 ? (

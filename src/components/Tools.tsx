@@ -3,8 +3,9 @@ import iconDelete from "../assets/icons/delete.svg";
 import iconUpdate from "../assets/icons/update.svg";
 import iconColors from "../assets/icons/colors.svg";
 import "../styles/Tools.css";
+import { PropsTools } from "../types/types";
 
-const Tools = ({ deleteNote, editNote, showColors }) => {
+const Tools = ({ deleteNote, editNote, showColors }: PropsTools) => {
   return (
     <div className="container-tools">
       <img

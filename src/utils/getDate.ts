@@ -1,4 +1,4 @@
-export function getDate () {
+export function getDate (): {fecha:string, hours: string} {
     const date = new Date();
     const year = date.getFullYear();
     const day = date.getDate();

@@ -1,30 +1,25 @@
-
-import { useEffect, useState } from "react";
+import { ChangeEvent, FormEvent, useEffect, useState } from "react";
 import "../styles/Form-card.css";
-import { getDate } from "../utils/getDate";
 import { useContextNotes } from "../contexts/ContextNotes";
 import iconClose from "../assets/icons/close.svg";
 import { objNote } from "../constants/ObjectNote";
+import { ObjNoteType } from "../types/types";
 
-const FormCard = () => {
-  const [form, setform] = useState(objNote);
-  const { addNotes, editNote, setEditNote, showModal } = useContextNotes();
+const FormCard = (): JSX.Element => {
+  const [form, setform] = useState<ObjNoteType>(objNote);
+  const { addNotes, editNote, showModal } = useContextNotes();
 
-  const handleChange = (e) => {
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     setform({
       ...form,
       [e.target.name]: e.target.value,
     });
   };
 
-  const handleSubmitForm = (e) => {
+  const handleSubmitForm = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const { fecha, hours } = getDate();
-    form.date = fecha;
-    form.hours = hours;
     addNotes(form);
     setform(objNote);
-    setEditNote({});
     showModal();
   };
 
@@ -55,20 +50,18 @@ const FormCard = () => {
           name="title"
           value={form.title}
           required
-          onChange={(e) => handleChange(e)}
+          onChange={handleChange}
           className="input"
         />
       </div>
       <div className="container-input">
         <label className="label-form">Nota</label>
-        <textarea
+        <input
           name="text"
-          cols="30"
-          rows="10"
           value={form.text}
           required
-          onChange={(e) => handleChange(e)}
-          className="input detail-form"></textarea>
+          onChange={handleChange}
+          className="input detail-form"></input>
       </div>
       <button type="submit" className="btn-form">
         {form.id ? "Actualizar" : "Crear"}
