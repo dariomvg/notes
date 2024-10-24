@@ -6,7 +6,7 @@ const ButtonCreate = () => {
   const {showModal} = useContextNotes()
   return (
     <button className="btn-create-note" onClick={showModal}>
-      <img src={iconMas} alt="icon mas" width={30} height={30} className="icon-btn"  />
+      <img src={iconMas} alt="icon mas" width={30} height={30} className="icon-btn" />
       Crear Nota
     </button>
   )

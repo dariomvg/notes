@@ -6,11 +6,11 @@ import { objNote } from "../constants/ObjectNote";
 import { ObjNoteType } from "../types/types";
 
 const FormCard = (): JSX.Element => {
-  const [form, setform] = useState<ObjNoteType>(objNote);
-  const { addNotes, editNote, showModal } = useContextNotes();
+  const [form, setForm] = useState<ObjNoteType>(objNote);
+  const { addNotes, editNote, showModal, closeModal } = useContextNotes();
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setform({
+    setForm({
       ...form,
       [e.target.name]: e.target.value,
     });
@@ -19,15 +19,15 @@ const FormCard = (): JSX.Element => {
   const handleSubmitForm = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     addNotes(form);
-    setform(objNote);
+    setForm(objNote);
     showModal();
   };
 
   useEffect(() => {
     if (editNote.id !== undefined) {
-      setform(editNote);
+      setForm(editNote);
     }
-  }, []);
+  }, [editNote]);
 
   return (
     <form className="form" onSubmit={handleSubmitForm}>
@@ -38,11 +38,10 @@ const FormCard = (): JSX.Element => {
           height={40}
           alt="icon close"
           className="icon-close"
-          onClick={showModal}
+          onClick={closeModal}
           loading="lazy"
         />
       </div>
-
       <div className="container-input">
         <label className="label-form">Título</label>
         <input

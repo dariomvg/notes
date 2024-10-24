@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { ChangeEvent, useEffect, useState } from "react";
 import { useContextNotes } from "../contexts/ContextNotes";
 import ContainerBackground from "./ContainerBackground.js";
 import Tools from "./Tools.js";
@@ -16,9 +16,7 @@ const CardNote = ({ note }: NoteType) => {
     }
 
   const showColors = () => setViewColors(!viewColors);
-
   const handleBackground = (back: ColorType) => addBackground(back, id);
-
   const deleteNote = () => removeNote(id);
 
   return (

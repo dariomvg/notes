@@ -1,6 +1,6 @@
 .card-note {
-  width: 320px;
-  height: 400px;
+  width: 280px;
+  height: 360px;
   background-color: #18181b;
   color: #fff;
   display: flex;
@@ -29,7 +29,8 @@
 
 .title-card {
   color: #fff;
-  padding: 0 10px 10px 10px;
+  font-size: 24px;
+  padding: 10px;
 }
 
 .details-card {
@@ -40,11 +41,6 @@
   font-weight: 500;
   font-size: 18px;
   padding: 10px;
-}
-
-.image-detail {
-  border-radius: 10px;
-  object-fit: cover;
 }
 
 ::-webkit-scrollbar {
@@ -59,3 +55,5 @@
 ::-webkit-scrollbar-thumb:hover {
   background-color: #666;
 }
+
+

@@ -22,6 +22,7 @@ export interface ContextNotesTypes {
   removeNote: (id: number) => void;
   addBackground: (background: ColorType, id: number) => void;
   updateNote: (note: ObjNoteType) => void;
+  closeModal: () => void;
 }
 
 export interface ChildrenType {

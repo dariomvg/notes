@@ -24,7 +24,6 @@ export const useContextNotes = (): ContextNotesTypes => {
 
 export default function ProviderNotes({ children }: ChildrenType) {
   const [editNote, setEditNote] = useState<ObjNoteType>(objNote);
-
   const [toggle, setToggle] = useState<boolean>(false);
   const [notes, setNotes] = useState<ObjNoteType[]>(() => {
     const savedNotes = getLocalStorageNotes();
@@ -35,18 +34,23 @@ export default function ProviderNotes({ children }: ChildrenType) {
     setToggle(!toggle);
   };
 
+  const closeModal = () => {
+    setEditNote(objNote); 
+    showModal(); 
+  }
+
   const addNotes = (note: ObjNoteType) => {
     const { fecha, hours } = getDate();
-    note.date = fecha;
-    note.hours = hours;
+    const newNote = {...note, date: fecha, hours}
+
     if (note.id) {
       setNotes(
         notes.map((item: ObjNoteType) => (item.id === note.id ? note : item))
       );
       setEditNote(objNote);
     } else {
-      note.id = Date.now();
-      setNotes([...notes, note]);
+      newNote.id = Date.now();
+      setNotes([...notes, newNote]);
     }
   };
 
@@ -82,6 +86,7 @@ export default function ProviderNotes({ children }: ChildrenType) {
         showModal,
         toggle,
         addBackground,
+        closeModal
       }}>
       {children}
     </ContextNotes.Provider>
