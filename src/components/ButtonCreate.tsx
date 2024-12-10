@@ -2,7 +2,7 @@ import "../styles/ButtonCreate.css"
 import iconMas from "../assets/icons/mas-circle.svg"
 import { useContextNotes } from "../contexts/ContextNotes"
 
-const ButtonCreate = () => {
+const ButtonCreate = (): JSX.Element => {
   const {showModal} = useContextNotes()
   return (
     <button className="btn-create-note" onClick={showModal}>

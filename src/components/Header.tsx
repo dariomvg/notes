@@ -2,7 +2,7 @@ import "../styles/Header.css";
 import ButtonCreate from "./ButtonCreate";
 import { useContextNotes } from "../contexts/ContextNotes";
 
-const Header = () => {
+const Header = (): JSX.Element => {
     const {notes} = useContextNotes()
 
   return (

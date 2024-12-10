@@ -2,7 +2,7 @@ import { colors } from "../constants/recursos";
 import "../styles/Container-background.css";
 import { ContainerType } from "../types/types";
 
-const ContainerBackground = ({ handleBackground }: ContainerType) => {
+const ContainerBackground = ({ handleBackground }: ContainerType): JSX.Element => {
   return (
       <div className="container-colors">
         {colors.map((item, index) => (

@@ -5,7 +5,7 @@ import Tools from "./Tools.js";
 import "../styles/CardNote.css";
 import { ColorType, NoteType} from "../types/types";
 
-const CardNote = ({ note }: NoteType) => {
+const CardNote = ({ note }: NoteType): JSX.Element => {
   const [viewColors, setViewColors] = useState(false);
   const { id, title, text, date, hours, back } = note;
   const { addBackground, removeNote, updateNote } =
@@ -22,16 +22,18 @@ const CardNote = ({ note }: NoteType) => {
   return (
     <div
       className="card-note"
-      style={back.color ? { backgroundColor: back.color } : undefined}>
+      style={back.color ? { backgroundColor: back.color } : undefined}
+      
+      >
       <div className="header-card">
-        <div className="container-date">
+        <div className="container-date" data-testid="hours">
           <p>última edición:</p>
           <p>{hours}</p>
         </div>
-        <p>{date}</p>
+        <p data-testid="date">{date}</p>
       </div>
-      <h2 className="title-card">{title}</h2>
-      <p className="details-card">{text}</p>
+      <h2 className="title-card" data-testid="title">{title}</h2>
+      <p className="details-card" data-testid="text">{text}</p>
       {viewColors && (
         <ContainerBackground handleBackground={handleBackground} />
       )}

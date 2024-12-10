@@ -24,7 +24,7 @@ const FormCard = (): JSX.Element => {
   };
 
   useEffect(() => {
-    if (editNote.id !== undefined) {
+    if (editNote && editNote.id !== undefined) {
       setForm(editNote);
     }
   }, [editNote]);
@@ -43,10 +43,11 @@ const FormCard = (): JSX.Element => {
         />
       </div>
       <div className="container-input">
-        <label className="label-form">Título</label>
+        <label className="label-form" htmlFor="titulo">Título</label>
         <input
           type="text"
           name="title"
+          id="titulo"
           value={form.title}
           required
           onChange={handleChange}
@@ -54,9 +55,10 @@ const FormCard = (): JSX.Element => {
         />
       </div>
       <div className="container-input">
-        <label className="label-form">Nota</label>
+        <label className="label-form" htmlFor="nota">Nota</label>
         <input
           name="text"
+          id="nota"
           value={form.text}
           required
           onChange={handleChange}

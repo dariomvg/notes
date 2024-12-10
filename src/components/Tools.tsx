@@ -5,7 +5,7 @@ import iconColors from "../assets/icons/colors.svg";
 import "../styles/Tools.css";
 import { PropsTools } from "../types/types";
 
-const Tools = ({ deleteNote, editNote, showColors }: PropsTools) => {
+const Tools = ({ deleteNote, editNote, showColors }: PropsTools): JSX.Element => {
   return (
     <div className="container-tools">
       <img

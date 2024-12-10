@@ -7,11 +7,12 @@ import Header from "./components/Header.js";
 const SectionCards = React.lazy(() => import('./components/SectionCards.js'));
 const ButtonCreate = React.lazy(() => import('./components/ButtonCreate.js'));
 
-export default function App() {
+export default function App(): JSX.Element {
   const { notes, toggle } = useContextNotes();
 
   return (
     <main className="wrapper">
+      <p>Hello</p>
       <Header />
       {toggle && (
         <div className="modal">
@@ -19,7 +20,7 @@ export default function App() {
         </div>
       )}
       <section className="container-main">
-        <section className="wrapper-main">
+        <section className="wrapper-main" data-testid="wrapper">
           <Suspense fallback={<Loading />}>
             {notes.length > 0 ? (
               <SectionCards notes={notes} />

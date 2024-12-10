@@ -39,6 +39,13 @@ export interface PropsTools {
   showColors: () => void
 }
 
+
 export interface ContainerType {
     handleBackground: (item: ColorType) => void
 }
+
+
+export interface SectionNotesProps {
+  notes: ObjNoteType[]
+}
+
