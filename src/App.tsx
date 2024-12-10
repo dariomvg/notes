@@ -12,7 +12,6 @@ export default function App(): JSX.Element {
 
   return (
     <main className="wrapper">
-      <p>Hello</p>
       <Header />
       {toggle && (
         <div className="modal">
